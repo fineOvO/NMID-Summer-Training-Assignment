@@ -1,0 +1,1 @@
+GuessNumber类实现游戏主体；Rank类是实现排行榜功能的一个工具类；TestGame为调用主类。
