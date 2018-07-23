@@ -23,24 +23,31 @@ public class NumberGuess
 
     public void systemStage()
     {
-        String controller;
+        String controller = null;
+        final String BEGIN = "begin";
+        final String END = "shut down";
+        final String RANK = "rank";
 
         do{
-            System.out.println("\nPlease Input:\n          \"begin\" to start a new game\n          \"shut down\" to exit game\n          \"rank\" to check in rank\n");
-            Scanner sc = new Scanner(System.in);
-            controller= sc.nextLine();
-            if(controller.equals("rank"))
+            if(RANK.equals(controller))
             {
                 /*显示排行榜*/
                 r.printing();
             }
-            else if(!(controller.equals("shut down") || controller.equals("begin")))
+            else if(controller != null)
             {
                 System.out.println("Input error");
             }
-        }while(!(controller.equals("shut down") || controller.equals("begin")));
 
-        if(controller.equals("shut down"))
+            System.out.println("\nPlease Input:\n          \"begin\" to start a new game\n          "
+                              +"\"shut down\" to exit game\n          \"rank\" to check in rank\n");
+
+            Scanner sc = new Scanner(System.in);
+            controller= sc.nextLine();
+
+        }while(!(END.equals(controller) || BEGIN.equals(controller)));
+
+        if(END.equals(controller))
         {
             System.out.println("Game Over!");
             System.exit(0);
