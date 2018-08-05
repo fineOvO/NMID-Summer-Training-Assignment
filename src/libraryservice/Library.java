@@ -9,7 +9,7 @@ class Library{
     private final int MAX_STOCK = 3;
     // 空库存量
     private final int EMPTY_STOCK = 0;
-    // 创建一把锁
+    // 创建一把锁 ，因为在主类中为了保证多个线程执行的并发和随机程度会用到该锁，所以用 protected 权限
     protected Lock lock = new ReentrantLock();
     // 创建stockFull条件队列并绑定在lock上，当还书线程发现书本库存满时，没有书可还，等待在该条件上。
     private Condition stockFull = lock.newCondition();
